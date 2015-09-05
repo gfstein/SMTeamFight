@@ -6,6 +6,7 @@
  * Time: 3:56 PM
  */
 ?>
+Site do Kru
 <form action="controller/ControllerLogin.php" method="post">
     Email: <input type="text" name="email">
     Senha: <input type="password" name="senha">
