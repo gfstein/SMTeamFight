@@ -50,14 +50,15 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+            <form action="controller/ControllerLogin.php" method="post" class="navbar-form navbar-left" role="search">
+                Email: <input type="text" name="email" class="form-control" placeholder="e-mail">
+                Senha: <input type="password" name="senha" class="form-control" placeholder="senha">
+                <button name="operacao" value="login" class="btn btn-success">
+                    Logar
+                </button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+                <li><a href="controller/Controller.php">Sair</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -76,3 +77,5 @@
     <!-- /.container-fluid -->
 </nav>
 <div class="tela">
+    <div class="panel panel-smteam">
+        <div class="panel-body">
