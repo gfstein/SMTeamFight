@@ -1,16 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: willian.manucello
- * Date: 9/3/2015
- * Time: 3:56 PM
- */
+include 'cabecalho.php';
 ?>
-Site do Kru 2
-<form action="controller/ControllerLogin.php" method="post">
-    Email: <input type="text" name="email">
-    Senha: <input type="password" name="senha">
-    <button name="operacao" value="login">
-        Logar
-    </button>
-</form>
+<div class="panel panel-default">
+    <div class="panel-body">
+        Site do Kru 2
+        <form action="controller/ControllerLogin.php" method="post">
+            Email: <input type="text" name="email">
+            Senha: <input type="password" name="senha">
+            <button name="operacao" value="login">
+                Logar
+            </button>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        Basic panel example
+    </div>
+</div>
