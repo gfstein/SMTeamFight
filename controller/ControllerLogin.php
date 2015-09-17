@@ -14,7 +14,7 @@ switch($operacao){
     case 'login':
         $email = htmlspecialchars($_POST['email']);
         $senha = sha1(htmlspecialchars($_POST['senha']));
-        if ($usuario = $usuarioDao->getLogin($email, $senha, $link)) {
+        if ($usuario = $usuarioDao->login($email, $senha, $link)) {
             $_SESSION['email'] = $usuario->email;
             $_SESSION['papel'] = $usuario->papel;
             $_SESSION['chave_sm_team'] = sha1($usuario->email.$usuario->papel);

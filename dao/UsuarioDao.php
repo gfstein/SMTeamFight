@@ -7,7 +7,7 @@
  */
 
 class UsuarioDao{
-    public function getLogin($email, $senha, $link){
+    public function login($email, $senha, $link){
 
         $sql = "select * from usuario where email  = '$email' AND senha ='$senha'";
 
@@ -15,7 +15,11 @@ class UsuarioDao{
 
         $usuario = mysqli_fetch_object($resultado);
 
-        return $usuario;
+        if($senha == $usuario->senha) {
+            return $usuario;
+        }else{
+            return null;
+        }
     }
 
     public function getPros($link){
