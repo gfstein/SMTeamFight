@@ -45,13 +45,16 @@ section.module.parallax h1 {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 section.module.parallax-1 {
-    background-image: url("../img/logo.jpg");
+    background-color: #262626;
+    background-image: url("../img/logo.png");
+    background-size: auto 1000px;
+    color: forestgreen;
 }
 section.module.parallax-2 {
-    background-image: url("../img/demo/_small/2.jpg");
+    background-image: url("../img/muay1.png");
 }
 section.module.parallax-3 {
-    background-image: url("../img/demo/_small/3.jpg");
+    background-image: url("../img/muay2.jpg");
 }
 section.module.parallax-4 {
     background: black;
