@@ -1,3 +1,13 @@
+CREATE TABLE IF NOT EXISTS `classificacao` (
+  `id_classificacao` int(11) NOT NULL AUTO_INCREMENT,
+  `grau` int(11) NOT NULL,
+  `cor` VARCHAR(50) NOT NULL,
+  `cor2` VARCHAR(50) NOT NULL,
+  `nome` VARCHAR(100) NOT NULL,
+  `descricao` VARCHAR(500) NULL,
+  PRIMARY KEY (`id_classificacao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
 CREATE TABLE IF NOT EXISTS `usuario` (
 `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) COLLATE utf8_bin NOT NULL,

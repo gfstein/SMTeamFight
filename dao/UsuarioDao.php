@@ -39,4 +39,14 @@ class UsuarioDao{
 
         return $result;
     }
+
+    public function getUsuario($email, $link){
+        $sql = "select * from usuario where email = '$email'";
+
+        $result = $link->query($sql);
+
+        $usuario = mysqli_fetch_object($result);
+
+        return $usuario;
+    }
 }

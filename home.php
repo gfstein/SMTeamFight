@@ -17,7 +17,7 @@ include 'interceptor/Interceptor.php';
                         <div class="card-block">
                             <img class="card-img-top" id="img_usuario"
                                  src="<? echo "data:image/jpeg;base64," . base64_encode($usuario->img) ?>"><br>
-                            <a href="#" class="btn btn-primary-outline">Ver perfil</a>
+                            <a href="perfil.php?usuario=<?=$usuario->email?>" class="btn btn-primary-outline">Ver perfil</a>
                             <a href="#" class="btn btn-primary-outline">+ pagamento</a>
                         </div>
                         <div class="card-footer text-muted">
@@ -43,7 +43,7 @@ include 'interceptor/Interceptor.php';
                         <div class="card-block">
                             <img class="card-img-top" id="img_usuario"
                                  src="<? echo "data:image/jpeg;base64," . base64_encode($usuario->img) ?>"><br>
-                            <a href="#" class="btn btn-primary-outline">Ver perfil</a>
+                            <a href="perfil.php?usuario=<?=$usuario->email?>" class="btn btn-primary-outline">Ver perfil</a>
                             <a href="#" class="btn btn-primary-outline">+ pagamento</a>
                         </div>
                         <div class="card-footer text-muted">

@@ -102,11 +102,20 @@
                     <a class="nav-link" href="#Apresentação">Classificações<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item pull-right">
-                    <a class="nav-link" href="controller/Controller.php">
-                        <button class="btn btn-danger-outline">
-                            Sair
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?=$_SESSION['email']?>
                         </button>
-                    </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="perfil.php?usuario=<?=$_SESSION['email']?>">Perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="controller/Controller.php">
+                                <button class="btn btn-danger-outline btn-block">
+                                    Sair
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         <? } ?>

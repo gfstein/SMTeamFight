@@ -6,7 +6,8 @@ if (isset($_SESSION['chave_sm_team'])) {
         $chave_sm_team = sha1($_SESSION['email'] . $_SESSION['papel']);
         if ($_SESSION['chave_sm_team'] != $chave_sm_team) {
             session_destroy();
-            header("location: ../index.php");
+            header("location: index.php");
+            exit;
         } else {
             foreach ($papeis as $papel) {
                 if ($papel == $_SESSION['papel']) {
@@ -33,9 +34,11 @@ if (isset($_SESSION['chave_sm_team'])) {
             }
         }
     } else {
-        header("location: ../index.php");
+        header("location: index.php");
+        exit;
     }
 } else {
-    header("location: ../index.php");
+    header("location: index.php");
+    exit;
 }
 ?>

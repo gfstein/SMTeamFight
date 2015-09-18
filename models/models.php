@@ -13,4 +13,8 @@ include 'Pagamento.php';
 
 $pagamento = new Pagamento();
 
+include 'Classificacao.php';
+
+$classificacao = new Classificacao();
+
 ?>

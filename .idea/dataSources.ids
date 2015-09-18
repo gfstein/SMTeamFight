@@ -7,6 +7,15 @@
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="muay"/>
+    <table name="classificacao" schema="" catalog="muay" type="TABLE">
+      <column name="id_classificacao" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="grau" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cor" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cor2" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nome" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descricao" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_classificacao"/>
+    </table>
     <table name="pagamento" schema="" catalog="muay" type="TABLE">
       <column name="id_pagamento" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="id_usuario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -29,8 +38,10 @@
       <column name="papel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
       <column name="is_pro" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
       <column name="img" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="id_classificacao" sqlType="MEDIUMINT" precision="7" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id_usuario,email"/>
       <exported-key name="pagamento_ibfk_1" table="pagamento" schema="" catalog="muay" columns="id_usuario"/>
+      <index name="classificacao" unique="false" columns="id_classificacao"/>
     </table>
   </data-source>
 </component>
