@@ -24,7 +24,16 @@ class UsuarioDao{
 
     public function getPros($link){
 
-        $sql = "select * from usuario where is_pro is true";
+        $sql = "select * from usuario u where is_pro is true AND u.id_usuario in(SELECT id_usuario from pagamento p WHERE (curdate() - p.data) > 0)";
+
+        $result = $link->query($sql);
+
+        return $result;
+    }
+
+    public function getProsAtraso($link){
+
+        $sql = "select * from usuario u where is_pro is true AND u.id_usuario NOT IN(SELECT id_usuario from pagamento p WHERE (curdate() - p.data) > 0 )";
 
         $result = $link->query($sql);
 

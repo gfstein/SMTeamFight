@@ -1,77 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - site@localhost" uuid="924affbe-a4bc-4b1a-94b0-35d966e1bee3">
-    <database-info product="MySQL" version="5.5.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <schema name="" catalog="site"/>
-    <table name="hash" schema="" catalog="site" type="TABLE">
-      <column name="id_hash" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="id_usuario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="hash" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_hash"/>
-    </table>
-    <table name="historico_imei" schema="" catalog="site" type="TABLE">
-      <column name="id_historico_imei" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <primary-key name="PRIMARY" columns="id_historico_imei"/>
-    </table>
-    <table name="imei" schema="" catalog="site" type="TABLE">
-      <column name="id_imei" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="id_usuario" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="id_licenca" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-      <column name="numero" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="ativo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
-      <column name="nome" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_imei,id_usuario"/>
-      <index name="imei_FKIndex1" unique="false" columns="id_licenca,id_usuario"/>
-    </table>
-    <table name="licenca" schema="" catalog="site" type="TABLE">
-      <column name="id_licenca" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="id_usuario" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="contador_imeis" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" remarks="Q29udGFkb3IgZGUgSW1laXMgYXRpdmFkb3M="/>
-      <column name="data_hr" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
-      <column name="ativo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
-      <primary-key name="PRIMARY" columns="id_licenca,id_usuario"/>
-      <index name="licenca_FKIndex1" unique="false" columns="id_usuario"/>
-      <index name="licenca_FKIndex2" unique="false" columns="id_usuario"/>
-    </table>
-    <table name="mensagem_contato" schema="" catalog="site" type="TABLE">
-      <column name="id_msg_contato" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="id_usuario" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="descricao" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="data_hora" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="tipo_contato" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
-      <column name="chave" sqlType="VARCHAR" precision="600" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_msg_contato"/>
-      <index name="mensagem_contato_FKIndex1" unique="false" columns="id_usuario"/>
-    </table>
-    <table name="pedido_troca" schema="" catalog="site" type="TABLE">
-      <column name="id_pedido_troca" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="id_usuario" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="id_licenca" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="mensagem" sqlType="VARCHAR" precision="950" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_pedido_troca"/>
-      <index name="pedido_troca_FKIndex1" unique="false" columns="id_usuario,id_licenca"/>
-    </table>
-    <table name="usuario" schema="" catalog="site" type="TABLE">
-      <column name="id_usuario" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="nome" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
-      <column name="nome_empresa" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
-      <column name="endereco" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
-      <column name="email" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
-      <column name="cpf_cnpj" sqlType="VARCHAR" precision="17" scale="0" nullable="true" jdbcType="12"/>
-      <column name="telefone" sqlType="VARCHAR" precision="17" scale="0" nullable="true" jdbcType="12"/>
-      <column name="senha" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12"/>
-      <column name="tipo_usuario" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
-      <column name="is_pro" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
-      <column name="ativo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
-      <column name="cargas" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
-      <primary-key name="PRIMARY" columns="id_usuario"/>
-    </table>
-  </data-source>
-  <data-source name="MySQL - muay@localhost" uuid="330ff0a4-c378-45cc-af81-07e17c0e76fd">
+  <data-source name="MySQL - muay@localhost" uuid="bf6a3310-9325-4427-a4b2-83681f874692">
     <database-info product="MySQL" version="5.5.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -99,6 +28,7 @@
       <column name="data_nasc" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
       <column name="papel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
       <column name="is_pro" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="img" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
       <primary-key name="PRIMARY" columns="id_usuario,email"/>
       <exported-key name="pagamento_ibfk_1" table="pagamento" schema="" catalog="muay" columns="id_usuario"/>
     </table>

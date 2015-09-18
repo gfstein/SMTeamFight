@@ -25,5 +25,6 @@ CREATE TABLE IF NOT EXISTS `pagamento` (
 
 ALTER TABLE `usuario` ADD `is_pro` INT NOT NULL DEFAULT '0' ;
 ALTER TABLE `usuario` CHANGE `is_pro` `is_pro` BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE  `usuario` ADD  `img` LONGBLOB NULL;
 
 INSERT INTO `muay`.`usuario` (`id_usuario`, `email`, `senha`, `nome`, `endereco`, `telefone`, `celular`, `profissao`, `hora_profissao`, `data_nasc`, `papel`) VALUES (NULL, 'willianw94@hotmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Willian RLM', 'CEU2', '5588997766', '5596984336', 'Estagiario', '08-12, 14-18', '1994-11-18', '1');

@@ -7,3 +7,5 @@
  */
 include 'UsuarioDao.php';
 $usuarioDao = new UsuarioDao();
+include 'PagamentoDao.php';
+$pagamentoDao = new PagamentoDao();

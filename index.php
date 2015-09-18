@@ -8,6 +8,9 @@ include 'cabecalho.php';
         width: 100%;
         z-index: 999
     }
+    #body_1{
+        background-color: #262626; color: white;
+    }
 </style>
 <main>
     <section class="module parallax parallax-1">

@@ -24,7 +24,12 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
+    <!-- Bootstrap --><!--
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/min.js" type="text/javascript"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>-->
     <!--Bootstrap 4 alpha-->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -39,14 +44,8 @@
     <meta name="description" content="Academia de muay thay e taekwondo">
     <meta name="keywords" content="sm team fight, muay thai, muay, muay boran, taekwondo">
     <meta name="author" content="SM Team Fight">
-    <!-- Bootstrap --><!--
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/min.js" type="text/javascript"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>-->
 </head>
-<body style="background-color: #262626; color: white">
+<body id="body_1">
 <nav class="navbar navbar-dark bg-inverse" id="menu_principal" style="border-radius: 0%; background-color: #000000; border-bottom: 1px solid green">
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
         &#9776;
@@ -90,6 +89,18 @@
             </form>
         <? } else { ?>
             <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.php">Alunos em dia<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="home.php?atraso=true">Alunos com atraso<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Apresentação">Novos usuários<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Apresentação">Classificações<span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item pull-right">
                     <a class="nav-link" href="controller/Controller.php">
                         <button class="btn btn-danger-outline">
