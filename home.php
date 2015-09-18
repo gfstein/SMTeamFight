@@ -2,7 +2,7 @@
 $papeis = array('1', '2');
 include 'interceptor/Interceptor.php';
 
-echo "<h1>Usuarios</h1>";
+echo "<h1>Usuários</h1>";
 
 if ($result = $usuarioDao->getPros($link)) {
     while($usuario = mysqli_fetch_object($result)){

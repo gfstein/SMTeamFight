@@ -1,12 +1,35 @@
+<!DOCTYPE html>
+<html>
 <head>
+    <!-- Não descomente essa maldição pf!!!!!!
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    -->
+
+    <!-- FAVICON-->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/faviconapple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
     <!--Bootstrap 4 alpha-->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
-    
+
     <!-- Css SM TEAN FIGHT -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -24,13 +47,13 @@
     <script src="js/bootstrap.min.js"></script>-->
 </head>
 <body style="background-color: #262626; color: white">
-<nav class="navbar navbar-dark bg-inverse" style="border-radius: 0%; background-color: #000000;">
+<nav class="navbar navbar-dark bg-inverse" id="menu_principal" style="border-radius: 0%; background-color: #000000; border-bottom: 1px solid green">
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
         &#9776;
     </button>
-    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2" style="margin-top: 10px">
         <a class="navbar-brand" href="#">
-            <img src="img/logo.png" width="50px">
+            <img src="img/parallax/logo.png" width="50px" style="margin-top: -10px">
         </a>
         <? if (!isset($_SESSION['chave_sm_team'])) { ?>
             <ul class="nav navbar-nav">
@@ -38,13 +61,18 @@
                     <a class="nav-link" href="#Apresentação">Apresentação <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Sobre">Sobre <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Razao">Razão <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#Cadastro">Cadastro <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Contato">Contato <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Informacoes">Informações <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <? if (isset($_GET['usuario'])): ?>
+                        <a class="nav-link" style="color: red;"><strong>Dados invalidos!</strong></a>
+                    <? endif; ?>
                 </li>
             </ul>
             <form class="form-inline navbar-form pull-right" action="controller/ControllerLogin.php" method="post">
@@ -74,5 +102,3 @@
     </div>
 </nav>
 <div class="tela">
-    <div class="panel panel-smteam">
-        <div class="panel-body">

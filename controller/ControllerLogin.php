@@ -22,6 +22,7 @@ switch($operacao){
             exit;
         }else{
             header("location: ../index.php?usuario=false");
+            exit;
         }
         break;
 

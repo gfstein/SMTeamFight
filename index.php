@@ -169,5 +169,9 @@ include 'cabecalho.php';
                 }(document, 'script', 'facebook-jssdk'));
             </script>
         </div>
+        <div id="rodape">
+            Desenvolvido por <a href="https://www.facebook.com/willianw94">Willian RLM</a> e
+            <a href="https://www.facebook.com/guilhermefloresstein?fref=ts">Guilherme Stein</a>.
+        </div>
     </div>
 </main><!-- /main -->
