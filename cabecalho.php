@@ -24,6 +24,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <!--Fonta awersone-->
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
     <!-- Bootstrap --><!--
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/min.js" type="text/javascript"></script>
