@@ -49,4 +49,13 @@ class UsuarioDao{
 
         return $usuario;
     }
+
+    public function save($nome, $email, $senha, $endereco, $telefone, $celular, $data, $profissao, $horarios, $link){
+        $sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, celular, data_nasc, profissao, hora_profissao) ".
+            "VALUES ($nome, $email, $senha, $endereco, $telefone, $celular, $data, $profissao, $horarios)";
+
+        $link->query($sql) or die("erro");
+
+        return true;
+    }
 }

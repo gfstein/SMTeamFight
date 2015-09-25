@@ -81,6 +81,16 @@ include 'cabecalho.php';
     </section>
     <section class="module content">
         <div class="container">
+            <?php
+            if(isset($_GET['senhas']) AND $_GET['senhas']==true){
+                ?>
+                <div class="alert alert-danger">
+                    <strong>As senha não são iguais</strong>
+                </div>
+            <?php
+             }
+            ?>
+
             <form action="controller/Controller.php" method="post">
                 <div class="col-md-12">
                     <div style="color: red;">
