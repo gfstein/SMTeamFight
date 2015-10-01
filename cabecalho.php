@@ -78,7 +78,7 @@
                     <? endif; ?>
                 </li>
             </ul>
-            <form class="form-inline navbar-form pull-right" action="controller/ControllerLogin.php" method="post">
+            <form class="form-inline navbar-form pull-right" action="controller/ControllerPublic.php" method="post">
                 <input type="text" name="email" class="form-control" placeholder="E-mail">
                 <input type="password" name="senha" class="form-control" placeholder="Senha">
 

@@ -52,10 +52,10 @@ class UsuarioDao{
 
     public function save($nome, $email, $senha, $endereco, $telefone, $celular, $data, $profissao, $horarios, $link){
         $sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, celular, data_nasc, profissao, hora_profissao) ".
-            "VALUES ($nome, $email, $senha, $endereco, $telefone, $celular, $data, $profissao, $horarios)";
+            "VALUES ('$nome', '$email', '$senha', '$endereco', '$telefone', '$celular', '$data', '$profissao', '$horarios')";
 
-        $link->query($sql) or die("erro");
+        //$link = new mysqli("localhost", "smteam", "1234", "muay") or die(mysqli_error($link));
 
-        return true;
+        $link->query($sql);
     }
 }
