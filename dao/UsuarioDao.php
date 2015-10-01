@@ -50,6 +50,14 @@ class UsuarioDao{
         return $usuario;
     }
 
+    public function getFrees($link){
+        $sql = "select * from usuario where is_pro = 0";
+
+        $result = $link->query($sql);
+
+        return $result;
+    }
+
     public function save(Usuario $usuario, $link){
         $sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, celular, data_nasc, profissao, hora_profissao) ".
             "VALUES ('$usuario->nome', '$usuario->email', '$usuario->senha', '$usuario->endereco', '$usuario->telefone', '$usuario->celular',".

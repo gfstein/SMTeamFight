@@ -1,7 +1,6 @@
 <?php
 $papeis = array('1', '2');
 include 'interceptor/Interceptor.php';
-include 'service/Util.php';
 ?>
 <hr>
 <?

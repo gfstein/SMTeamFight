@@ -31,6 +31,9 @@ if (isset($_SESSION['chave_sm_team'])) {
                 if(!include '/dao/daos.php'){
                     include '../dao/daos.php';
                 }
+                if(!include 'service/Util.php'){
+                    include '../service/Util.php';
+                }
             }
         }
     } else {

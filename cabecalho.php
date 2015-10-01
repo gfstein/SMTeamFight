@@ -122,7 +122,7 @@
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Apresentação">
+                    <a class="nav-link" href="novos.php">
                         <i class="fa fa-newspaper-o fa-1x"></i>
                         Novos usuários<span class="sr-only">(current)</span></a>
                 </li>
