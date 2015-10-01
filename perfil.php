@@ -1,6 +1,7 @@
 <?php
 $papeis = array('1', '2');
 include 'interceptor/Interceptor.php';
+include 'service/Util.php';
 ?>
 <hr>
 <?
@@ -13,8 +14,50 @@ if ($usuario = $usuarioDao->getUsuario($usuarioBuscar, $link)) {
     ?>
     <h2>Perfil de <?= $usuario->nome ?></h2>
     <div class="col-md-3">
-        <img class="card-img-top" id="img_usuario"
-             src="<? echo "data:image/jpeg;base64," . base64_encode($usuario->img) ?>">
+        <!-- Button trigger modal -->
+        <button type="button" data-toggle="modal" data-target="#myModal" style="background-image: ">
+            <?
+            $util = new Util();
+            $util->imagem($usuario->img);
+            ?>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Cancelar</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Alterar imagem</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <?
+                                $util = new Util();
+                                $util->imagem($usuario->img)
+                                ?>
+                            </div>
+                            <div class="col-md-offset-4">
+                                <form method="post" action="" enctype="multipart/form-data">
+                                    <img id="imagem_preview" src="" height="120">
+                                    <input id="preview_file" class="form-control" type="file" onchange="previewFile()"
+                                           name="file">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar alterações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-9">
         <form action="" method="post">
@@ -23,7 +66,7 @@ if ($usuario = $usuarioDao->getUsuario($usuarioBuscar, $link)) {
                 <select class="form-control" id="classificacao" name="classificacao">
                     <?
                     $listaClassificacoes = $classificacaoDao->getClassificacaoes($link);
-                    while($classificacao = mysqli_fetch_object($listaClassificacoes)){
+                    while ($classificacao = mysqli_fetch_object($listaClassificacoes)) {
                         echo "<option onchange='MudarCor()' value='$classificacao->idClassificacao'>$classificacao->grau / $classificacao->nome</option>";
                     }
                     ?>
@@ -39,54 +82,91 @@ if ($usuario = $usuarioDao->getUsuario($usuarioBuscar, $link)) {
         </form>
     </div>
     <div class="col-md-12">
-        <div style="color: red;">
-            <hr>
-            <strong>*</strong> Campos marcados são obrigatórios!
+        <hr>
+        <div class="text-warning">Campos marcados com * são obrigatórios!
         </div>
     </div>
     <form action="" method="post">
         <fieldset class="form-group col-md-12">
             <label for="formGroupExampleInput">Nome *</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo" value="<?=$usuario->nome?>">
-        </fieldset>
-        <fieldset class="form-group col-md-12">
-            <label for="formGroupExampleInput2">E-mail *</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail para contato" value="<?=$usuario->email?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome completo"
+                       value="<?= $usuario->nome ?>">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-6">
             <label for="formGroupExampleInput">Senha *</label>
-            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha para acesso" value="">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha para acesso"
+                       value="">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-6">
             <label for="formGroupExampleInput">Confirme a senha *</label>
-            <input type="password" class="form-control" id="senha2" name="senha2"
-                   placeholder="Confirmação de senha" value="">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                <input type="password" class="form-control" id="senha2" name="senha2"
+                       placeholder="Confirmação de senha" value="">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-12">
             <label for="formGroupExampleInput2">Endereço *</label>
-            <input type="text" class="form-control" id="endereco" name="endereco"
-                   placeholder="Endereço para contato" value="<?=$usuario->endereco?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-map-o fa-fw"></i></span>
+                <input type="text" class="form-control" id="endereco" name="endereco"
+                       placeholder="Endereço para contato" value="<?= $usuario->endereco ?>">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-4">
             <label for="formGroupExampleInput">Telefone</label>
-            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone fixo" value="<?=$usuario->telefone?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-fax fa-fw"></i></span>
+                <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Telefone fixo"
+                       value="<?= $usuario->telefone ?>">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-4">
             <label for="formGroupExampleInput2">Celular</label>
-            <input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular" value="<?=$usuario->celular?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-mobile fa-fw"></i></span>
+                <input type="tel" class="form-control" id="celular" name="celular" placeholder="Celular"
+                       value="<?= $usuario->celular ?>">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-4">
             <label for="formGroupExampleInput2">Data de nascimento *</label>
-            <input type="date" class="form-control" id="data" name="data" placeholder="Data de nascimento" value="<?=$usuario->data_nasc?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                <input type="date" class="form-control" id="data" name="data" placeholder="Data de nascimento"
+                       value="<?= $usuario->data_nasc ?>">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-12">
             <label for="formGroupExampleInput2">Profissão</label>
-            <input type="text" class="form-control" id="profissao" name="profissao" placeholder="Profissão" value="<?=$usuario->profissao?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-gavel fa-fw"></i></span>
+                <input type="text" class="form-control" id="profissao" name="profissao" placeholder="Profissão"
+                       value="<?= $usuario->profissao ?>">
+            </div>
         </fieldset>
         <fieldset class="form-group col-md-12">
             <label for="formGroupExampleInput2">Horários de trabalho</label>
-            <input type="text" class="form-control" id="horarios" name="horarios"
-                   placeholder="Horários de trabalho" value="<?=$usuario->hora_profissao?>">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-clock-o fa-fw"></i></span>
+                <input type="text" class="form-control" id="horarios" name="horarios"
+                       placeholder="Horários de trabalho" value="<?= $usuario->hora_profissao ?>">
+            </div>
             <hr>
 
             <button class="btn btn-success-outline" name="operacao" value="cadastrar_usuario">
@@ -102,7 +182,27 @@ if ($usuario = $usuarioDao->getUsuario($usuarioBuscar, $link)) {
 }
 ?>
 <script>
-    function MudarCor(){
+    function MudarCor() {
         alert('oi');
     }
+
+    function previewFile() {
+        var preview = document.getElementById("imagem_preview");
+        var file = document.getElementById("preview_file").files[0]; //sames as here
+        var reader = new FileReader();
+
+        if (file.size > 2000000) {
+            alert("Imagem selecionada ultrapassa os 2 mb de tamnho. Selecione outra.");
+        } else {
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
+    }
+    previewFile();
 </script>

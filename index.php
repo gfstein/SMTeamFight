@@ -87,14 +87,14 @@ include 'cabecalho.php';
             <?php
             if (isset($_GET['senhas']) AND $_GET['senhas'] == true) {
                 ?>
-                <div id="erroFormCadastro" class="alert alert-danger">
+                <div id="erroFormCadastro" class="text-danger">
                     <strong>As senhas não são iguais</strong>
                 </div>
                 <?php
             }
             if (isset($_GET['required']) AND $_GET['required'] == true) {
                 ?>
-                <div id="erroFormCadastro" class="alert alert-danger">
+                <div id="erroFormCadastro" class="text-danger">
                     <strong>Preencha os campos obrigatórios</strong>
                 </div>
                 <?php
@@ -107,9 +107,8 @@ include 'cabecalho.php';
 
             <form action="controller/ControllerPublic.php" method="post">
                 <div class="col-md-12">
-                    <div style="color: red;">
-                        <strong>*</strong> Campos marcados são obrigatórios!
-                        <hr>
+                    <hr>
+                    <div class="text-warning">Campos marcados com * são obrigatórios!
                     </div>
                 </div>
                 <fieldset class="form-group col-md-12">

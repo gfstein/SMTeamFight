@@ -102,7 +102,7 @@
                     </label>
                 </div>
                 <button name="operacao" value="login" class="btn btn-success-outline">
-                    <i class="fa fa-arrow-right fa-1x"></i>
+                    <i class="fa fa-sign-in fa-1x"></i>
                     Logar
                 </button>
             </form>
