@@ -25,7 +25,7 @@ switch($operacao){
             header("location: ../perfil.php");
             exit;
         }else{
-            header("location: ../index.php?usuario=false");
+            header("location: ../index.php?credenciais=false");
             exit;
         }
         break;

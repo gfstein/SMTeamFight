@@ -82,7 +82,7 @@
                         Informações <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <? if (isset($_GET['usuario'])): ?>
+                    <? if (isset($_GET['credenciais'])): ?>
                         <a class="nav-link" style="color: red;"><strong>Dados invalidos!</strong></a>
                     <? endif; ?>
                 </li>
