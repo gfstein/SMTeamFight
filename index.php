@@ -22,7 +22,7 @@ include 'cabecalho.php';
     </section>
     <section class="module content" id="Apresentação">
         <div class="container">
-            <h2>Notícias / Informações</h2>
+            <h2><i class="fa fa-newspaper-o fa-fw"></i> Notícias</h2>
 
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
             ">
@@ -220,14 +220,14 @@ include 'cabecalho.php';
             <h1>Informações</h1>
         </div>
         <div class="container col-md-offset-1" style="margin-bottom: 50px">
-            <h4>Funcionamento</h4>
+            <h4><i class="fa fa-cogs fa-fw"></i> Funcionamento</h4>
             De segunda a sexta das 14h ás 22 h.
             Sábados das 15 h as 20 h.
             <hr>
-            <h4>Endereço</h4>
+            <h4><i class="fa fa-map-marker fa-fw"></i> Endereço</h4>
             Dr Bozzano, 1263 - 4° Andar Calçadão Shopping Santa Maria - Centro, 97015-004 Santa Maria.
             <hr>
-            <h4>Contato</h4>
+            <h4><i class="fa fa-mobile fa-fw"></i> Contato</h4>
             55 3347-3387 / 55 9906-0410 <img src="img/logos/whatsapp.png" width="25px" style="margin-bottom: 5px"
                                              title="Whatsapp" alt="Whatsapp"><br>
             E-mail: crismoraes_boton@hotmail.com
@@ -248,7 +248,7 @@ include 'cabecalho.php';
             </script>
         </div>
         <div id="rodape">
-            Desenvolvido por <a href="https://www.facebook.com/willianw94">Willian RLM</a> e
+            <i class="fa fa-registered fa-fw"></i> Desenvolvido por <a href="https://www.facebook.com/willianw94">Willian RLM</a> e
             <a href="https://www.facebook.com/guilhermefloresstein?fref=ts">Guilherme Stein</a>.
         </div>
     </div>
