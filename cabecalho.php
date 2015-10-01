@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
@@ -50,7 +50,8 @@
     <meta name="author" content="SM Team Fight">
 </head>
 <body id="body_1">
-<nav class="navbar navbar-dark bg-inverse" id="menu_principal" style="border-radius: 0%; background-color: #000000; border-bottom: 1px solid green">
+<nav class="navbar navbar-dark bg-inverse" id="menu_principal"
+     style="border-radius: 0%; background-color: #000000; border-bottom: 1px solid green">
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
         &#9776;
     </button>
@@ -61,16 +62,24 @@
         <? if (!isset($_SESSION['chave_sm_team'])) { ?>
             <ul class="nav navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#Apresentação">Apresentação <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Apresentação">
+                        <i class="fa fa-home fa-1x"></i>
+                        Apresentação <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Razao">Razão <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Razao">
+                        <i class="fa fa-heart fa-1x"></i>
+                        Razão <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Cadastro">Cadastro <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Cadastro">
+                        <i class="fa fa-edit fa-1x"></i>
+                        Cadastro <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Informacoes">Informações <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Informacoes">
+                        <i class="fa fa-info fa-1x"></i>
+                        Informações <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <? if (isset($_GET['usuario'])): ?>
@@ -79,48 +88,73 @@
                 </li>
             </ul>
             <form class="form-inline navbar-form pull-right" action="controller/ControllerPublic.php" method="post">
-                <input type="text" name="email" class="form-control" placeholder="E-mail">
-                <input type="password" name="senha" class="form-control" placeholder="Senha">
-
+                <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                    <input type="text" name="email" class="form-control" placeholder="E-mail">
+                </div>
+                <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                    <input type="password" name="senha" class="form-control" placeholder="Senha">
+                </div>
                 <div class="checkbox">
                     <label>
                         <input type="checkbox"> Lembrar-me
                     </label>
                 </div>
                 <button name="operacao" value="login" class="btn btn-success-outline">
+                    <i class="fa fa-arrow-right fa-1x"></i>
                     Logar
                 </button>
             </form>
-        <? } else { ?>
-            <ul class="nav navbar-nav">
+        <? } else {
+            if ($_SESSION['papel'] == 2) { ?>
+                <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.php">Alunos em dia<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="home.php">
+                        <i class="fa fa-plus-square fa-1x"></i>
+                        Alunos em dia
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="home.php?atraso=true">Alunos com atraso<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="home.php?atraso=true">
+                        <i class="fa fa-minus-square fa-1x"></i>
+                        Alunos com atraso<span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Apresentação">Novos usuários<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Apresentação">
+                        <i class="fa fa-newspaper-o fa-1x"></i>
+                        Novos usuários<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Apresentação">Classificações<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#Apresentação">
+                        <i class="fa fa-tags fa-1x"></i>
+                        Classificações<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item pull-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?=$_SESSION['email']?>
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="perfil.php?usuario=<?=$_SESSION['email']?>">Perfil</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="controller/Controller.php">
-                                <button class="btn btn-danger-outline btn-block">
-                                    Sair
-                                </button>
-                            </a>
-                        </div>
+            <? } ?>
+            <li class="nav-item pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-cog fa-1x"></i>
+                        <?= $_SESSION['email'] ?>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="perfil.php?usuario=<?= $_SESSION['email'] ?>">
+                            <i class="fa fa-user fa-2x"></i>
+                            Perfil
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="controller/Controller.php">
+                            <button class="btn btn-danger-outline btn-block">
+                                <i class="fa fa-power-off fa-1x"></i>
+                                Sair
+                            </button>
+                        </a>
                     </div>
-                </li>
+                </div>
+            </li>
             </ul>
         <? } ?>
     </div>
