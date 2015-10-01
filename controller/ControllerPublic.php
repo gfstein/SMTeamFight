@@ -18,7 +18,11 @@ switch($operacao){
             $_SESSION['email'] = $usuario->email;
             $_SESSION['papel'] = $usuario->papel;
             $_SESSION['chave_sm_team'] = sha1($usuario->email.$usuario->papel);
-            header("location: ../home.php");
+            if($usuario->papel == '1'){
+                header("location: ../perfil.php");
+                exit;
+            }
+            header("location: ../perfil.php");
             exit;
         }else{
             header("location: ../index.php?usuario=false");
@@ -47,9 +51,9 @@ switch($operacao){
 
         if($senha == $senha2){
             $usuarioDao->save($nome, $email, $senha, $endereco, $telefone, $celular, $data, $profissao, $horarios, $link);
-            $_SESSION['email'] = $usuario->email;
-            $_SESSION['papel'] = 1;
-            $_SESSION['chave_sm_team'] = sha1($usuario->email.$usuario->papel);
+            $_SESSION['email'] = $email;
+            $_SESSION['papel'] = '1';
+            $_SESSION['chave_sm_team'] = sha1($email.'1');
             header("location: ../perfil.php");
             exit;
         } else {
