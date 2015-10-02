@@ -1,13 +1,15 @@
 <?php
 $papeis = array('2');
 include 'interceptor/Interceptor.php';
+
+$util = new Util();
 ?>
 <hr>
 <? if (!isset($_GET['atraso'])) { ?>
     <div class="card-group">
         <?
         if ($result = $usuarioDao->getPros($link)) {
-            htmlComum($result);
+            htmlComum($result, $util);
         }
         ?>
     </div>
@@ -15,13 +17,13 @@ include 'interceptor/Interceptor.php';
     <div class="card-group">
         <?
         if ($result = $usuarioDao->getProsAtraso($link)) {
-            htmlComum($result);
+            htmlComum($result, $util);
         }
         ?>
     </div>
     <?
 }
-function htmlComum($result)
+function htmlComum($result, $util)
 {
     while ($usuario = mysqli_fetch_object($result)) {
         ?>
@@ -30,19 +32,24 @@ function htmlComum($result)
                 <div class="card-header">
                     <?= $usuario->nome ?>
                 </div>
-                <div class="card-block">
-                    <?
-                    $util = new Util();
-                    $util->imagem($usuario->img);
-                    ?>
-                    <a href="perfil.php?usuario=<?= $usuario->email ?>" class="btn btn-primary-outline">
-                        <i class="fa fa-street-view fa-1x"></i>
-                         Ver perfil
-                    </a>
-                    <a href="#" class="btn btn-primary-outline">
-                        <i class="fa fa-credit-card fa-1x"></i>
-                         pagamento
-                    </a>
+                <div class="card-block row">
+                    <div class="col-md-12">
+                        <form action="perfil.php" method="get">
+                            <button class="btn btn-default" name="usuario" value="<?= $usuario->email ?>">
+                                <?
+                                $util->imagem($usuario->img);
+                                ?>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-12">
+                        <form action="#" method="get">
+                            <button class="btn btn-primary-outline" name="usuario" value="<?= $usuario->email ?>">
+                                <i class="fa fa-credit-card fa-1x"></i>
+                                Pagamentos
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 <div class="card-footer text-muted">
                 </div>
