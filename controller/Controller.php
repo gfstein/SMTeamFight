@@ -15,6 +15,11 @@ switch($operacao){
     case 'login':
         break;
 
+    case 'atualiza_dados':
+
+
+
+        break;
 
 
 }

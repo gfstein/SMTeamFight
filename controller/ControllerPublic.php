@@ -49,7 +49,7 @@ switch($operacao){
 
         if(empty($usuario->nome) || empty($usuario->email) || empty($usuario->senha) || empty($senha2) || empty($usuario->endereco) || empty($usuario->dataNasc)) {
             $usuario = json_encode($usuario);
-            header("location: ../index.php?required=true&usuario=$usuario#Cadastro");
+            header("location: ../index.php?required=true#Cadastro");
             exit;
         }
 

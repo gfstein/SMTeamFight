@@ -65,4 +65,14 @@ class UsuarioDao{
 
         $link->query($sql);
     }
+
+    public function updateUser(Usuario $usuario, $link){
+        $sql = "UPDATE usuario SET email='$usuario->email', senha='$usuario->senha', nome='$usuario->nome',".
+            "endereco='$usuario->endereco', telefone='$usuario->telefone', celular='$usuario->celular',".
+            "profissao='$usuario->profissao', hora_profissao='$usuario->horaProfissao', data_nasc='$usuario->dataNasc',".
+            " WHERE id_usuario=$usuario->idUsuario";
+
+        $link->query($sql);
+    }
+
 }
